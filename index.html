@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <header class="d-flex justify-content-between align-items-center p-3">
+    <header class="fixed-top d-flex justify-content-between align-items-center p-3 shadow-sm">
         <!-- Logo -->
         <div class="logo">
             <h2 class="text-primary">RemoteJob<span class="text-info">Finder</span></h2>
@@ -36,9 +36,64 @@
         <a href="#jobs" class="btn btn-primary btn-lg mt-4">Browse Jobs</a>
     </section>
     
+    <section id="jobs" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="mb-4 text-center">Explore Available Job Categories</h2>
+    
+            <!-- Job Categories -->
+            <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+                <button class="btn btn-outline-dark category-btn" data-category="software">Software Development</button>
+                <button class="btn btn-outline-dark category-btn" data-category="design">ICT</button>
+                <button class="btn btn-outline-dark category-btn" data-category="marketing">Marketing</button>
+                <button class="btn btn-outline-dark category-btn" data-category="data">Human Resource</button>
+                <button class="btn btn-outline-dark category-btn" data-category="other">Other</button>
+            </div>
+    
+            <!-- Job Listings -->
+            <div class="row">
+                <!-- Job Card 1 -->
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <img src="./data/job1.jpg" class="card-img-top" alt="Frontend Developer">
+                        <div class="card-body">
+                            <h5 class="card-title">Software Development</h5>
+                            <p class="card-text">Join a leading tech company as a Frontend Developer and work from anywhere.</p>
+                            <a href="#" class="btn btn-primary">View Job</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Job Card 2 -->
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <img src="./data/job2.jpg" class="card-img-top" alt="Data Scientist">
+                        <div class="card-body">
+                            <h5 class="card-title">Data Scientist</h5>
+                            <p class="card-text">A top AI startup is looking for an experienced Data Scientist.</p>
+                            <a href="#" class="btn btn-primary">View Job</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Job Card 3 -->
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <img src="./data/job3.jpg" class="card-img-top" alt="UI/UX Designer">
+                        <div class="card-body">
+                            <h5 class="card-title">UI/UX Designer</h5>
+                            <p class="card-text">Design beautiful interfaces for web and mobile apps remotely.</p>
+                            <a href="#" class="btn btn-primary">View Job</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>

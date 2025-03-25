@@ -8,6 +8,16 @@ header {
     color: white;
 }
 
+header li:hover {
+    background: #d1d4d1;
+    border-radius: 30px;
+    }
+
+header a {
+    color: white;
+    margin: auto 10px;
+}
+
 .hero {
     position: relative;
     height: 70vh; /* Full viewport height */
@@ -33,3 +43,15 @@ header {
     z-index: -1;
 }
 
+.category-btn {
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    
+}
+
+.category-btn:hover {
+    background-color: var(--bs-primary);
+    color: white;
+}
