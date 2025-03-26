@@ -10,7 +10,6 @@
 <body>
 
     <header class="fixed-top d-flex justify-content-between align-items-center p-3 shadow-sm">
-        <!-- Logo -->
         <div class="logo">
             <h2 class="text-primary">RemoteJob<span class="text-info">Finder</span></h2>
         </div>
@@ -28,14 +27,47 @@
         <button id="logIn" class="btn btn-dark">LogIn</button>
     </header>
 
-    <section class="hero d-flex flex-column justify-content-center align-items-center text-center text-white">
+<section class="hero d-flex flex-column justify-content-center align-items-center text-center text-white">
+    <video autoplay loop muted playsinline class="hero-video">
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <div class="overlay"></div> <!-- Optional: Adds a semi-transparent overlay for better readability -->
+    
+    <div class="hero-content position-relative">
         <h1 class="display-3 fw-bold">Shape Your Future with Remote Opportunities</h1>
         <p class="lead mt-3">
             Discover remote job listings across various industries and take control of your career from anywhere in the world.
         </p>
         <a href="#jobs" class="btn btn-primary btn-lg mt-4">Browse Jobs</a>
-    </section>
+    </div>
+</section>
+
     
+    <section id="job-filter" class="container my-4">
+        <div class="input-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="Type a keyword">
+            <select id="categoryFilter" class="form-select">
+                <option value="">Field</option>
+                <option value="Software Development">Software Development</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Finance">Finance</option>
+                <option value="Human Resources">Human Resources</option>
+            </select>
+            <select id="locationFilter" class="form-select">
+                <option value="">Location</option>
+                <option value="Remote">Remote</option>
+                <option value="USA">USA</option>
+                <option value="Europe">Europe</option>
+                <option value="India">India</option>
+                <option value="Kenya">Kenya</option>
+            </select>
+            <button onclick="filterData()"  class="btn btn-primary" id="filterBtn">Filter Jobs</button>            
+        </div>
+        
+    </section>    
+
     <section id="jobs" class="py-5 bg-light">
         <div class="container">
             <h2 class="mb-4 text-center">Explore Available Job Categories</h2>
@@ -50,8 +82,8 @@
             </div>
     
             <!-- Job Listings -->
-            <div class="row">
-                <!-- Job Card 1 -->
+            <!-- <div class="row">
+                
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <img src="./data/job1.jpg" class="card-img-top" alt="Frontend Developer">
@@ -63,7 +95,7 @@
                     </div>
                 </div>
     
-                <!-- Job Card 2 -->
+                
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <img src="./data/job2.jpg" class="card-img-top" alt="Data Scientist">
@@ -75,7 +107,7 @@
                     </div>
                 </div>
     
-                <!-- Job Card 3 -->
+                
                 <div class="col-md-4">
                     <div class="card shadow-sm">
                         <img src="./data/job3.jpg" class="card-img-top" alt="UI/UX Designer">
@@ -86,14 +118,29 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  -->
             
         </div>
+
+        <div class="container-fluid px-5">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3" id="job-listings"></div>
+        </div>
+         
+            
+            <!-- Pagination -->
+            <div class="d-flex justify-content-center mt-4">
+                <button id="prevPage" class="btn btn-outline-primary me-2" disabled>Previous</button>
+                <span id="pageNumber" class="align-self-center mx-2">1</span>
+                <button id="nextPage" class="btn btn-outline-primary">Next</button>
+            </div>
+
+        </div>
+
     </section>
     
     
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="./src/script.js"></script>
 </body>
 </html>
