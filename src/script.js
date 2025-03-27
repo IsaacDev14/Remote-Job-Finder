@@ -14,10 +14,10 @@ let filteredJobs = [];
 let currentPage = 1;
 const jobsPerPage = 8;
 
-// Fetch jobs from JSON file
+// Fetch jobs from JSON file located in github
 async function fetchJobs() {
     try {
-        const response = await fetch("jobs.json"); // Ensure correct path
+        const response = await fetch("https://github.com/IsaacDev14/Remote-Job-Finder/blob/main/jobs.json"); // uses a link from github
         jobs = await response.json();
         filteredJobs = jobs; // Show all jobs initially
         displayJobs();
