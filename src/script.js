@@ -73,7 +73,7 @@ function displayJobs() {
         jobCard.innerHTML = `
             <div class="card h-100 shadow-sm">
                 <img src="${job.image}" class="card-img-top" alt="${job.title}">
-                <div class="card-body p-3">
+                <div class="card-body p-3 h-100">
                     <h5 class="card-title text-primary">${job.title}</h5>
                     <p class="card-text"><strong>${job.company}</strong> - ${job.location}</p>
                     <p class="card-text">${job.description.length > 100 ? job.description.substring(0, 100) + '...' : job.description}</p>
