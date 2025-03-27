@@ -1,5 +1,24 @@
 {
   "dependencies": {
-    "bootstrap": "^5.3.3"
-  }
+    "bootstrap": "^5.3.3",
+    "json-server": "^1.0.0-beta.3"
+  },
+  "name": "remote-job-finder",
+  "version": "1.0.0",
+  "description": "🌍 Remote Job Finder Remote Job Finder is a web application that helps users discover remote job opportunities across various industries. The platform features a sleek user interface, job filtering options, and pagination for easy navigation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsaacDev14/Remote-Job-Finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsaacDev14/Remote-Job-Finder/issues"
+  },
+  "homepage": "https://github.com/IsaacDev14/Remote-Job-Finder#readme"
 }
