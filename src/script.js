@@ -17,7 +17,7 @@ const jobsPerPage = 8;
 // Fetch jobs from JSON file
 async function fetchJobs() {
     try {
-        const response = await fetch("jobs.json"); // Ensure correct path
+        const response = await fetch("https://remote-job-finder-2k6u.onrender.com/"); // Ensure correct path
         jobs = await response.json();
         filteredJobs = jobs; // Show all jobs initially
         displayJobs();
@@ -36,28 +36,38 @@ function displayJobs() {
 
     jobsToShow.forEach(job => {
         const jobCard = document.createElement("div");
-        jobCard.classList.add("col-lg-3", "col-md-4", "col-sm-6", "mb-2");  // Responsive layout
+        jobCard.classList.add("col-lg-3", "col-md-4", "col-sm-6", "mb-2"); // Responsive layout
 
         jobCard.innerHTML = `
-    <div class="card shadow-sm">
-        <img src="${job.image}" class="card-img-top" alt="${job.title}">
-        <div class="card-body p-3">
-            <h5 class="card-title text-primary">${job.title}</h5>
-            <p class="card-text"><strong>${job.company}</strong> - ${job.location}</p>
-            <p class="card-text">${job.description.length > 100 ? job.description.substring(0, 100) + '...' : job.description}</p>
-            ${job.description.length > 100 ? `<a href="#" class="read-more" data-desc="${job.description}">Read more</a>` : ""}
-            <p class="card-text text-muted">${job.salary}</p>
-            <a href="${job.apply_link}" class="btn btn-sm btn-primary mt-2" target="_blank">Apply Now</a>
-        </div>
-    </div>
-`;
+            <div class="card shadow-sm">
+                <img src="${job.image}" class="card-img-top" alt="${job.title}">
+                <div class="card-body p-3">
+                    <h5 class="card-title text-primary">${job.title}</h5>
+                    <p class="card-text"><strong>${job.company}</strong> - ${job.location}</p>
+                    <p class="card-text">${job.description.length > 100 ? job.description.substring(0, 100) + '...' : job.description}</p>
+                    ${job.description.length > 100 ? `<a href="#" class="read-more" data-desc="${job.description}">Read more</a>` : ""}
+                    <p class="card-text text-muted">${job.salary}</p>
+                    <button class="btn btn-sm btn-primary apply-btn mt-2">Apply Now</button>
+                </div>
+            </div>
+        `;
 
-// Add event listener for "Read more"
-jobCard.querySelector(".read-more")?.addEventListener("click", function (event) {
-    event.preventDefault();
-    this.previousElementSibling.textContent = this.dataset.desc; // Show full description
-    this.remove(); // Remove "Read more" link after expanding
-});
+        // Add event listener for "Read more"
+        jobCard.querySelector(".read-more")?.addEventListener("click", function (event) {
+            event.preventDefault();
+            this.previousElementSibling.textContent = this.dataset.desc; // Show full description
+            this.remove(); // Remove "Read more" link after expanding
+        });
+
+        // Handle "Apply Now" button click
+        const applyButton = jobCard.querySelector(".apply-btn");
+        applyButton.addEventListener("click", function () {
+            this.textContent = "You have successfully applied";
+            this.classList.remove("btn-primary");
+            this.classList.add("btn-success"); // Change button color to green
+            this.disabled = true; // Disable button after clicking
+        });
+
         jobListings.appendChild(jobCard);
     });
 
