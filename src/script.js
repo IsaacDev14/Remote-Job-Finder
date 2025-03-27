@@ -1,3 +1,34 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const darkModeButton = document.getElementById("darkMode");
+    const body = document.body;
+
+    if (!darkModeButton) {
+        console.error("Dark mode button not found! Check your HTML.");
+        return;
+    }
+
+    // Load dark mode preference
+    if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+        darkModeButton.textContent = "Light Mode";
+        darkModeButton.classList.replace("btn-dark", "btn-light");
+    }
+
+    darkModeButton.addEventListener("click", () => {
+        if (body.classList.contains("dark-mode")) {
+            body.classList.remove("dark-mode");
+            darkModeButton.textContent = "Dark Mode";
+            darkModeButton.classList.replace("btn-light", "btn-dark");
+            localStorage.setItem("darkMode", "disabled");
+        } else {
+            body.classList.add("dark-mode");
+            darkModeButton.textContent = "Light Mode";
+            darkModeButton.classList.replace("btn-dark", "btn-light");
+            localStorage.setItem("darkMode", "enabled");
+        }
+    });
+});
+
 const jobListings = document.getElementById("job-listings");
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
@@ -40,7 +71,7 @@ function displayJobs() {
         jobCard.classList.add("col-lg-3", "col-md-4", "col-sm-6", "mb-2"); // Responsive layout
 
         jobCard.innerHTML = `
-            <div class="card shadow-sm">
+            <div class="card h-100 shadow-sm">
                 <img src="${job.image}" class="card-img-top" alt="${job.title}">
                 <div class="card-body p-3">
                     <h5 class="card-title text-primary">${job.title}</h5>
