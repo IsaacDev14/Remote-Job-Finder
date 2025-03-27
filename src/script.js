@@ -17,7 +17,7 @@ const jobsPerPage = 8;
 // Fetch jobs from JSON file
 async function fetchJobs() {
     try {
-        const response = await fetch("https://remote-job-finder-2k6u.onrender.com/"); // Ensure correct path
+        const response = await fetch("jobs.json"); // Ensure correct path
         jobs = await response.json();
         filteredJobs = jobs; // Show all jobs initially
         displayJobs();
