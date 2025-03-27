@@ -13,12 +13,14 @@ body {
 
 
 header {
-    background: linear-gradient(to right, #ff00003a, #2cb6e0); 
+    background: linear-gradient(to right, #ff0000, #2cb6e0);
     color: white;
     width: 100%;
     top: 0;
+    transition: none;
     
 }
+
 
 header li:hover {
     background: #d1d4d1;
@@ -29,6 +31,11 @@ header a {
     color: white;
     margin: auto 10px;
 }
+
+section {
+    scroll-margin-top: 80px; /* Adjust based on your header height */
+}
+
 
 .hero {
     position: relative;
@@ -51,7 +58,7 @@ header a {
     width: 100%;
     height: 100%;
     background: url('./data/techbg.jpg') center/cover no-repeat;
-    opacity: 0.8; 
+    /* opacity: 0.8;  */
     z-index: -1;
 }
 

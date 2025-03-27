@@ -63,7 +63,7 @@ function displayJobs() {
         // Handle "Apply Now" button click
         const applyButton = jobCard.querySelector(".apply-btn");
         applyButton.addEventListener("click", function () {
-            this.textContent = "You have successfully applied";
+            this.textContent = "Applied";
             this.classList.remove("btn-primary");
             this.classList.add("btn-success"); // Change button color to green
             this.disabled = true; // Disable button after clicking
